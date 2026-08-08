@@ -27,7 +27,7 @@
                 c.css('animation-name', 'fall');
                 c.css('animation-duration', (4 + Math.random() * 14) + 's');
                 c.css('transform', 'scale(' + (0.4 + Math.random() * 2) + ')');
-                $('#hearts').append(c);
+                $('#hearts-overlay').append(c);
                 c.bind('animationend', function () { c.remove(); });
             
                 setTimeout(newHeart, 200);
@@ -55,9 +55,9 @@
     </head>
     <body>
         <div class="container-fluid" id="hearts">
-            <div class="heart-container">
-                <div class="heart">
-                    &hearts;
+            <div id="hearts-overlay">
+                <div class="heart-container">
+                    <div class="heart">&hearts;</div>
                 </div>
             </div>
             <div class="main">
