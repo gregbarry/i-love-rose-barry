@@ -1,0 +1,122 @@
+body {
+    background-color: #cd3232;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
+    color: white;
+    height: 100%;
+}
+
+h3 {
+    font-size: 1.1em;
+    opacity: .6;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 1.15em;
+}
+
+#hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.heart-container {
+    float: left;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    z-index: -1;
+    -moz-animation-duration: 20s;
+    -moz-animation-name: fall;
+    -moz-animation-timing-function: linear;
+    -webkit-animation-duration: 20s;
+    -webkit-animation-name: fall;
+    -webkit-animation-timing-function: linear;
+}
+
+@-moz-keyframes fall {
+    from {
+        top: -20px;
+    }
+    to {
+        top: 100%;
+    }
+}
+
+@-webkit-keyframes fall {
+    from {
+        top: -10%;
+    }
+    to {
+        top: 100%;
+    }
+}
+
+.heart {
+    overflow: hidden;
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-name: swing;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+    -moz-transform-origin: center center;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-name: swing;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-transform-origin: center center;
+}
+
+@-moz-keyframes swing {
+    from {
+        -moz-transform: rotate(-45deg) translateX(10px);
+    }
+    to {
+        -moz-transform: rotate(45deg) translateX(-10px);
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: scaleX(1) translateX(5px);
+    }
+    50% {
+        -moz-transform: scaleX(0.1);
+    }
+    to {
+        -moz-transform: scaleX(1) translateX(-5px);
+    }
+}
+
+@-webkit-keyframes swing {
+    from {
+        -webkit-transform: rotate(-45deg) translateX(10px);
+    }
+    to {
+        -webkit-transform: rotate(45deg) translateX(-10px);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: scaleX(1) translateX(5px);
+    }
+    50% {
+        -webkit-transform: scaleX(0.1);
+    }
+    to {
+        -webkit-transform: scaleX(1) translateX(-5px);
+    }
+}

